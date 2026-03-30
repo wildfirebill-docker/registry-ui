@@ -1,0 +1,12 @@
+services:
+  registry-ui:
+    build: .
+    ports:
+      - "8181:8000"
+    volumes:
+      - ./data/config.yml:/opt/config.yml:ro
+      - registry-ui-data:/opt/data
+    restart: unless-stopped
+
+volumes:
+  registry-ui-data:
